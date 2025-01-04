@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Penggunaan Pupuk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Prediksi Penggunaan Pupuk Optimal</h1>
+    <form action="/predict" method="post">
+        <label for="luas_tanah">Luas Tanah (m²):</label>
+        <input type="number" id="luas_tanah" name="luas_tanah" required>
+        <input type="submit" value="Prediksi">
+    </form>
+
+    {% if luas_tanah %}
+        <h2>Hasil Prediksi untuk Luas Tanah {{ luas_tanah }} m²:</h2>
+        <p>Banyak Pupuk: {{ banyak_pupuk }} kg</p>
+        <p>Air: {{ air }} liter</p>
+        <p>Waktu: {{ waktu }} hari</p>
+    {% endif %}
+</body>
+</html>
